@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="guest1" class="org.cuatrovientos.spring.hotelspring.models.Guest"
+		p:name="Drácula" p:dni="66661677D" />
+		
+	<bean id="guest2" class="org.cuatrovientos.spring.hotelspring.models.Guest"
+		p:name="frankenstein" p:dni="66661678F" />
+		
+	<bean id="guest3" class="org.cuatrovientos.spring.hotelspring.models.Guest"
+		p:name="Werewolf" p:dni="66661679W" />
+		
+		
+	<bean id="room1" class="org.cuatrovientos.spring.hotelspring.models.Room"
+		p:number="101" p:type="Single" p:description="A one guest room" p:guest-ref="guest1" />
+		
+	<bean id="room2" class="org.cuatrovientos.spring.hotelspring.models.Room"
+		p:number="102" p:type="Single" p:description="A one guest room" p:guest-ref="guest2" />
+		
+	<bean id="room3" class="org.cuatrovientos.spring.hotelspring.models.Room"
+		p:number="103" p:type="Single" p:description="A one guest room" p:guest-ref="guest3" />
+		
+	<bean id="room4" class="org.cuatrovientos.spring.hotelspring.models.Room"
+		p:number="104" p:type="Family" p:description="A family of guests room" p:guest="#{null}" />
+		
+	<bean id="room5" class="org.cuatrovientos.spring.hotelspring.models.Room"
+		p:number="105" p:type="Family" p:description="A family of guest room" p:guest="#{null}" />
+		
+		
+	<bean id="hotel" class="org.cuatrovientos.spring.hotelspring.models.Hotel">
+		<property name="name" value="Hotel Transilvania" />
+		<property name="rooms">
+			<set>
+				<ref bean="room1" />
+				<ref bean="room2" />
+				<ref bean="room3" />
+				<ref bean="room4" />
+				<ref bean="room5" />
+			</set>
+		</property>
+	</bean>
+</beans>
